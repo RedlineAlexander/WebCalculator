@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator Full-Stack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2> Calculator Redlina</h2>
+<form name="myForm">
+
+
+
+         <input type="text" name="textview"><br>
+
+    <table align="center">
+        <tr>
+          <td> <input type="button" name="mc"  value="MC"/></td>
+            <td><input type="button" name="mr" value="MR"></td>
+            <td> <input type="button" name="m+" value="M+"/> </td>
+            <td><input type="button" name="m-" value="M-"/></td>
+            <td><input type="button" name="ms" value="MS"></td>
+
+        </tr>
+
+
+
+
+        <tr>
+            <td><input type="button" name="iksdva" value="x<sup>2"></td>
+            <td><input type="button" name="iksigrek" value="x<sup>y"></td>
+            <td> <input type="button" name="sin"  onclick="sin()" value="sin"/></td>
+            <td><input type="button" name="cos"  onclick="cos()" value="cos" ></td>
+            <td> <input type="button" name="tan"  onclick="tan()" value="tan"/> </td>
+        </tr>
+    <tr>
+        <td><input type="button" name="plusminus" value="+-"/></td>
+        <td>    <input type = "button" name="one" onclick="insertNumber(1)" value="1"/></td>
+   <td> <input type = "button" name="two" onclick="insertNumber(2)" value="2"/></td>
+  <td> <input type = "button" name ="three" onclick="insertNumber(3)" value="3"/></td>
+        <td><input type = "button" name="addition" onclick="insertOp('+')" value="+"/></td>
+    </tr>
+
+    <tr>
+        <td><input type="button" name="factorial" value="n!"/></td>
+        <td><input type = "button" name="four" onclick="insertNumber(4)" value="4"/> </td>
+        <td><input type = "button" name="five" onclick="insertNumber(5)" value="5"/></td>
+        <td><input type = "button" name ="six" onclick="insertNumber(6)" value="6"/></td>
+        <td><input type = "button" name="subtraction" onclick="insertOp('-')" value="-"/></td>
+    </tr>
+        <tr>
+            <td><input type="button" name = "pi" value="PI"/></td>
+    <td><input type = "button" name="seven" onclick="insertNumber(7)" value="7"/></td>
+    <td><input type = "button" name="eight" onclick="insertNumber(8)" value="8"/></td>
+    <td><input type = "button" name ="nine" onclick="insertNumber(9)" value="9"/></td>
+            <td><input type = "button" name="multiplication" onclick="insertOp('*')"  value="*"/></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="button gray symbol" onclick="clean()" value="C"></td>
+<td><input type = "button" name="zero" onclick="insertNumber(0)" value="0"/></td>
+            <td><input type = "button" name ="division" onclick="insertOp('/')" value="/"/></td>
+            <td><input type = "button" name ="point"  onclick="insertOp('.')" value="."/></td>
+            <td><input type = "button" name ="equals"  onclick=" equalTo()" value="="/></td>
+        </tr>
+        <tr>
+
+    </tr>
+    </table>
+</form>
+<script>
+    var exp = '', number,decimal,equal,operator,allowSR = true;
+    var textview = document.forms['myForm']['textview'];
+
+    function insertNumber(num) {
+        if (equal) {
+            exp = num;
+            textview.value = exp;
+            number = true;
+            equal = false;
+
+        } else {
+            exp = textview.value + num;
+            textview.value = exp;
+            number = true;
+
+        }
+        if (operator) decimal = false;
+        //SR('a');
+    }
+    function insertOp(op) {
+        textview.value = exp + op;
+        operator = true;
+        equal = false;
+        allowSR = false;
+
+    }
+    function clean() {
+        exp = '';
+        textview.value = exp;
+        decimal = false;
+
+    }
+    function equalTo() {
+        if(exp){
+            exp = eval(exp);
+            textview.value = exp;
+            equal = true;
+            decimal = false;
+            number = false;
+            allowSR = true;
+        }
+
+    }
+    function back() {
+        exp = textview.value;
+        exp = exp.sudstring(0, exp.length - 1);
+        textview.value = exp;
+
+    }
+    function SR(x) {
+        if(x == 'r'){
+            exp = Math.sqrt(exp);
+            textview.value = exp;
+
+
+        }
+        else if(x == 's'){
+            exp = exp * exp;
+            textview.value = exp;
+        }
+        else if(x == 'a' && allowSR){
+            document.getElementById('r').disabled = false;
+            document.getElementById('s').disabled = false;
+        }
+        else if(!allowSR){
+            document.getElementById('r').disabled = true;
+            document.getElementById('r').disabled = true;
+        }
+    }
+    function backspace() {
+        var prevalue = myForm.textview.value;
+        myForm.textview.value = prevalue.substring(0 ,prevalue.length-1);
+
+    }
+    function degreepow() {
+        myForm.textview.value = Math.pow(myForm.textview.value, 2);
+    }
+    function negativefractionaldegree() {
+        myForm.textview.value = Math.pow(myForm.textview.value, 1/2);
+
+    }
+    function sin() {
+      myForm.textview.value = Math.sin(myForm.textview.value);
+    }
+    function cos() {
+        myForm.textview.value = Math.cos(myForm.textview.value);
+    }
+    function tan() {
+       myForm.textview.value = Math.tan(myForm.textview.value);
+    }
+
+        function ctg() {
+          myForm.textview.value = Math.ctg(myForm.textview.value);
+        }
+        function sqrtt() {
+        myForm.textview.value = Math.sqrt(myForm.textview.value);
+
+        }
+        function PI() {
+        myForm.textview.value = Math.PI(myForm.textview.value);
+
+        }
+        function log() {
+        myForm.textview.value = Math.log(myForm.textview.value);
+
+        }
+        function mod() {
+
+        }
+        function exponenta() {
+        myForm.textview.value = Math.exp(myForm.textview.value);
+    }
+        function decimalX() {
+
+        }
+
+
+
+
+
+</script>
+
+
+<p> 1 Число: <input type = "text" id="number1"></p>
+<p> 2 Число:  <input type = "text" id="number2"></p>
+<button onclick="Addition()">Сложить</button>
+<button onclick="Subtraction()">Вычесть</button>
+<button onclick="Multiplication()">Умножить</button>
+<button onclick="Division()">Поделить</button>
+<button onclick="sin()">Вычислить синус</button>
+
+<p id="out">Результат вычисления:</p>
+
+
+
+<script>
+var result1;
+var number1;
+var number2;
+number1 = function () {
+
+    function message1() {
+        var result = 0;
+      result =   one + two;
+    }
+}
+number2 = function () {
+    
+}
+result1 = function () {
+    
+}
+    function Addition(){
+     var num1, num2, result;
+     num1 = document.getElementById('number1').value;
+     num1 = parseInt(num1);
+
+     num2 = document.getElementById('number2').value;
+     num2 = parseInt(num2);
+
+     result = num1 + num2;
+     document.getElementById('out').innerHTML = result;
+    }
+    function Subtraction() {
+        var num1, num2, result;
+        num1 = document.getElementById('number1').value;
+        num1 = parseInt(num1);
+
+        num2 = document.getElementById('number2').value;
+        num2 = parseInt(num2);
+
+        result = num1 - num2;
+        document.getElementById('out').innerHTML = result;
+    }
+    function Multiplication() {
+        var num1, num2, result;
+        num1 = document.getElementById('number1').value;
+        num1 = parseInt(num1);
+
+        num2 = document.getElementById('number2').value;
+        num2 = parseInt(num2);
+
+        result = num1 * num2;
+        document.getElementById('out').innerHTML = result;
+    }
+    function Division() {
+
+try{
+    var num1, num2, result;
+    num1 = document.getElementById('number1').value;
+    num1 = parseInt(num1);
+
+    num2 = document.getElementById('number2').value;
+    num2 = parseInt(num2);
+    result = num1 / num2;
+    document.getElementById('out').innerHTML = result;
+}
+catch (error) {
+    alert("Попытка деления на ноль" +error);
+}
+
+
+    }
+   function sin() {
+    var num1, num2, int_result, result;
+    num1 = document.getElementById('number1').value;
+    num1 = ParseInt(num1);
+
+
+       num2 = document.getElementById('number2').value;
+       num2 = ParseInt(num2);
+       int_result = Math.sin(num1+num2);
+    result =  int_result;
+    document.getElementById('out').innerHTML = result;
+
+   }
+
+
+
+    function TestingButtons(e){
+    var keyTestBox = document.search.key;
+    var val = keyTestBox.value;
+    if(val.toString()){
+
+
+        e.preventDefault();
+    }
+    else{
+
+    }
+    }
+
+    function printForm(e) {
+    var keyBox = document.search.key;
+    var val = keyBox.value;
+    var printBlock = document.getElementById("printBlock");
+    var pElement = document.createElement("p");
+    pElement.textContent = val;
+    printBlock.appendChild(pElement);
+    }
+    var sendButton = document.search.print;
+sendButton.addEventListener("click", printForm);
+
+</script>
+
+<table align="center" border="500">
+    <caption>Таблица результатов вычислений </caption>
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+
+    </tr>
+
+    <tr><td></td></tr> <tr><td></td></tr>  <tr><td></td></tr>
+    <tr><td></td></tr>  <tr><td></td></tr> <tr><td></td></tr>
+
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+ <script type ="text/javascript">
+     function myclick(a) {
+       myform.display.value +=a;
+     }
+     function  equalTo() {
+         myform.display.value=eval(myform.display.value);
+
+
+     }
+     function ac() {
+         myform.display.value="0";
+
+     }
+     function backspace() {
+         var prevalue=myform.display.value;
+         myform.display.value = prevalue.substr(0,prevalue.length-1);
+     }
+     function fnsin() {
+         myform.display.value = Math.sin(myform.display.value);
+     }
+     function fncos() {
+         myform.display.value = Math.cos(myform.display.value);
+     }
+     function fntan() {
+         myform.display.value = Math.tan(myform.display.value);
+     }
+     function square() {
+         myform.display.value = Math.pow(myform.display.value,2);
+
+     }
+     function anypower(){
+         var anypow = 4;
+         anypow = prompt("Ваша степень целая для работы с калькулятором");
+         myform.display.value = Math.pow(myform.display.value, anypow);
+     }
+     function squarert() {
+         myform.display.value = Math.pow(myform.display.value, 1/2);
+
+     }
+      function log() {
+         myform.display.value = Math.log(myform.display.value);
+
+      }
+      function exp() {
+         myform.display.value = Math.exp(myform.display.value);
+
+      }
+      function PI() {
+         var n;
+         n = myform.display.value;
+         myform.display.value = Math.pi.toFixed(myform.display.value);
+
+      }
+      function anyroot() {
+         var n = 6;
+         n = prompt("Ваша степень дроби для работы с калькулятором");
+          myform.display.value = Math.pow(myform.display.value, 1/n);
+      }
+      var factori = [];
+      function factorialy(n) {
+          if(n == 0 || n == 1) {
+              return 1;
+          }
+          if(factori[n] > 0){
+              return factori[n];
+          }
+          return factori[n] = factorialy(n - 1) * n;
+         myform.display.value = factori[n];
+
+      }
+
+      function MC() {
+           mem = 0;
+           display = '';
+          // return mem;
+      }
+      function MR() {
+           myform.display.value = mem;
+      }
+      function Mplus(am) {
+        mem = parseInt(mem) + parseInt(am);
+        myform.display.value = mem;
+        return mem;
+      }
+      function Mminus(am) {
+         mem = parseInt(mem) - ParseInt(am);
+         myform.display.value = mem;
+         return mem;
+      }
+      function MStore() {
+
+      }
+ </script>
+<body>
+<h2>Calculator RedlineAlexander</h2>
+<form  name="myform" >
+
+
+    <input type ="text" align="center" name="display" maxlength="4000px"><br>
+
+    <input type="button"  name="btnmc" value="MC" onclick="MC()">
+    <input type="button"  name="btnmr" value="MR" onclick="MR()">
+    <input type="button"  name="btnmplus" value="M+" onclick="Mplus(myform.display.value)">
+    <input type="button"  name="btnmninus" value="M-" onclick="Mminus(myform.display.value)">
+    <input type="button"  name="btnms" value="MS" onclick="Mstore()"><br>
+
+
+
+    <input type="button" name="btnsin" value="sin" onclick="fnsin()">
+    <input type="button" name="btncos" value="cos" onclick="fncos()">
+    <input type="button" name="btntan" value="tan" onclick="fntan()">
+    <input type="button" name="btnsqr" value="^2" onclick="square()">
+    <input type="button" name="btnsqrt" value="Rt" onclick="squarert()"><br>
+    <input type="button" name="btnlog" value="log" onclick="log()">
+    <input type="button" name="btnexp" value="exp" onclick="exp()">
+    <input type="button" name="btnpi" value="PI" onclick="PI()">
+    <input type="button" name="btnpown" value="RootN" onclick="anyroot()">
+    <input type="button" name="btnanypower" value="AnyPower" onclick="anypower()"><br>
+
+
+
+
+    <input type = "button" name="btn7"  value="7" onclick="myclick('7')">
+    <input type = "button" name="btn8" value="8" onclick="myclick('8')">
+    <input type="button" name="btn9"  value="9" onclick="myclick('9')">
+    <input type="button" name="btndel" value="DEL" onclick="backspace()">
+    <input type="button" name="btnnac" value="AC" onclick="ac()"><br>
+    <input type = "button" name="btn7"  value="4" onclick="myclick('4')">
+    <input type = "button" name="btn8" value="5" onclick="myclick('5')">
+    <input type="button" name="btn9"  value="6" onclick="myclick('6')">
+    <input type = "button" name="btnsub" value="-" onclick="myclick('-')">
+    <input type="button" name="btndd"  value="+" onclick="myclick('+')"><br>
+
+    <input type = "button" name="btn7"  value="1" onclick="myclick('1')">
+    <input type = "button" name="btn8" value="2" onclick="myclick('2')">
+    <input type="button" name="btn9"  value="3" onclick="myclick('3')">
+    <input type = "button" name="btnmul" value="*" onclick="myclick('*')">
+    <input type="button" name="btndiv"  value="/" onclick="myclick('/')"><
+    <input type = "button" name="btnequal" value="=" onclick="equalTo()">
+    <input type="button" name="btnpoint" value="." onclick="myform.display.value+='.'">
+    <input type="button" name="btnfactorial" value="n!" onclick="factorialy(myform.display.value)">
+
+
+</form>
+</body>
+
+</html>

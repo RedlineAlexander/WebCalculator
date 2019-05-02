@@ -1,0 +1,54 @@
+body{
+    background: url(20181227_094706.jpg) no-repeat;
+    -moz-background-size: 100%;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+}
+.Absolute-Center{
+    margin:auto;
+    position: absolute;
+    top:0; left:0; bottom:0; right : 0;
+}
+h2{
+  text-transform:uppercase;
+  color:red;
+}
+.button{
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    position:relative;
+    border: 1px solid white;
+    padding: 0 1rem;
+}
+#outter
+{
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width:50%;
+    padding:15px;
+    border-radius: 5px;
+    border:1px solid #7ac9b7
+}
+input[type=text]{
+    margin-bottom: 20px;
+    margin-top:10px;
+    width: 20%;
+    padding:15px;
+    border-radius: 5px;
+    border:1px solid #7ac9b7
+}
+input[type=button]{
+    margin-bottom: 20px;
+    width:10%;
+    padding:15px;
+    border-radius: 5px;
+    border: 3px solid #000;
+    background-color: grey;
+    font-size:40px;
+}
+input[type=text]:focus,textarea:focus{
+    border:3px solid #000;
+}
+input[type=button]:hover{background-color: #99000d;}
